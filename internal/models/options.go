@@ -8,6 +8,7 @@ type Options struct {
 		Help                 bool   `long:"help" description:"Show this help message"`
 		Verbose              bool   `long:"verbose" description:"Verbose log output"`
 		Config               string `long:"config" description:"Path to config file"`
+		Output               string `long:"output" description:"Path to output file"`
 	} `group:"General options"`
 
 	Files struct {

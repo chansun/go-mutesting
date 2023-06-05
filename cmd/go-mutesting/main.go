@@ -197,7 +197,8 @@ MUTATOR:
 		})
 	}
 
-	tmpDir, err := os.MkdirTemp("", "go-mutesting-")
+	//tmpDir, err := os.MkdirTemp("", "go-mutesting-")
+	tmpDir, err := os.MkdirTemp(opts.General.Output, "go-mutesting-")
 	if err != nil {
 		panic(err)
 	}
@@ -258,7 +259,7 @@ MUTATOR:
 		debug(opts, "Remove %q", tmpDir)
 	}
 
-	report.Calculate()
+	//report.Calculate()
 
 	if !opts.Exec.NoExec {
 		if !opts.Config.SilentMode {
@@ -404,6 +405,15 @@ func mutate(
 						stats.Errored = append(stats.Errored, mutant)
 						stats.Stats.ErrorCount++
 					}
+				} else {
+					mutatedSourceCode, err := os.ReadFile(mutationFile)
+					if err != nil {
+						log.Fatal(err)
+					}
+					mutant.Mutator.MutatedSourceCode = string(mutatedSourceCode)
+
+					stats.Mutants = append(stats.Mutants, mutant)
+					stats.Stats.TotalMutantsCount++
 				}
 			}
 

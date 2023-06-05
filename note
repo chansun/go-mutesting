@@ -1,0 +1,30 @@
+# ref: https://github.com/avito-tech/go-mutesting
+
+cd /Users/user/Desktop/go-mutesting/cmd/go-mutesting
+go build (main.go 변경은 로컬에서, internal/models 변경은 로컬 팩키지에서 - /Users/user/go/pkg/mod/github.com/avito-tech/go-mutesting@v0.0.0-20230222222326-d13c9c375b57/internal/models)
+
+cd /Users/user/Desktop/go-mutesting
+
+# go-mutesting --exec "./scripts/exec/test-mutated-package.sh" (target)
+# e.g.,
+# - go-mutesting --exec "./scripts/exec/test-mutated-package.sh"
+# - go-mutesting --exec "./scripts/exec/test-mutated-package.sh" example
+# - go-mutesting --exec "./scripts/exec/test-mutated-package.sh" example/**
+
+# go-mutesting (target)
+# e.g., 
+# - go-mutesting
+# - go-mutesting example
+# - go-mutesting example/**
+
+# go-mutesting --verbose --no-exec --do-not-remove-tmp-folder (target)
+# e.g.,
+# - go-mutesting --no-exec --do-not-remove-tmp-folder
+# - go-mutesting --no-exec --do-not-remove-tmp-folder example
+# - go-mutesting --no-exec --do-not-remove-tmp-folder example/*
+# - go-mutesting --verbose --no-exec --do-not-remove-tmp-folder example/*
+# - go-mutesting --debug --no-exec --do-not-remove-tmp-folder example/*
+
+go-mutesting --output=(absolute dir for saving mutated files) --debug --no-exec --do-not-remove-tmp-folder (go target)
+e.g.,
+- go-mutesting --output=/Users/user/Desktop/folder123 --debug --no-exec --do-not-remove-tmp-folder example/*

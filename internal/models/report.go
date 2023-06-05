@@ -10,6 +10,7 @@ type Report struct {
 	Timeouted []Mutant `json:"timeouted"`
 	Killed    []Mutant `json:"killed"`
 	Errored   []Mutant `json:"errored"`
+	Mutants   []Mutant `json:"mutants"`
 }
 
 // Stats There is stats for mutations
