@@ -1,9 +1,11 @@
 # ref: https://github.com/avito-tech/go-mutesting
 
-cd /Users/user/Desktop/go-mutesting/cmd/go-mutesting
-go build (main.go 변경은 로컬에서, internal/models 변경은 로컬 팩키지에서 - /Users/user/go/pkg/mod/github.com/avito-tech/go-mutesting@v0.0.0-20230222222326-d13c9c375b57/internal/models)
+git clone https://github.com/chansun/go-mutesting.git
 
-cd /Users/user/Desktop/go-mutesting
+cd go-mutesting/cmd/go-mutesting
+
+go build # (main.go 변경은 로컬에서, internal/models 변경은 로컬 팩키지에서 - /Users/user/go/pkg/mod/github.com/avito-tech/go-mutesting@v0.0.0-20230222222326-d13c9c375b57/internal/models)
+
 
 # go-mutesting --exec "./scripts/exec/test-mutated-package.sh" (target)
 # e.g.,
